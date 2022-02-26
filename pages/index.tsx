@@ -26,6 +26,7 @@ export async function getStaticProps() {
   }
 }
 
+// @ts-ignore
 export default function Home({ panelIds }) {
   return (
     <div>
