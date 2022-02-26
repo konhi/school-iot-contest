@@ -35,7 +35,7 @@ export default function Home({ panelIds }) {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Monitor Energii
           </Typography>
-          <Link href="/settings">
+          <Link href="/settings" passHref>
             <IconButton
               size="large"
               edge="start"

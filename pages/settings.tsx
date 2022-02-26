@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <AppBar position="fixed">
       <Toolbar>
-      <Link href="/">
+      <Link href="/" passHref>
 
       <IconButton href="index" size="large" edge="start" color="inherit" aria-label="menu">
         <ArrowBackIcon />
