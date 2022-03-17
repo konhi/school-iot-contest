@@ -19,15 +19,16 @@ export default function Home() {
   const [energyLimit, setEnergyLimit] = useState(0);
 
   useEffect(() => {
-    const savedEnergyLimit = localStorage.getItem("energyLimit");
-    if (savedEnergyLimit){
-      setEnergyLimit(savedEnergyLimit);
+    const energyLimit = localStorage.getItem("energyLimit")
+
+    if (energyLimit) {
+      setEnergyLimit(parseInt(energyLimit))
     }
   }, []);
 
   const handleEnergyLimitChange = () => {
-    console.log(energyLimit);
-    localStorage.setItem("energyLimit", energyLimit);
+    console.log(energyLimit)
+    localStorage.setItem("energyLimit", energyLimit.toString())
   };
   
   return (
@@ -57,7 +58,7 @@ export default function Home() {
           <Input
             type="number"
             value={energyLimit}
-            onChange={(e) => setEnergyLimit(e.target.value)}
+            onChange={(e) => setEnergyLimit(parseInt(e.target.value))}
             id="standard-adornment-amount"
             startAdornment={
               <InputAdornment position="start">kWh</InputAdornment>
