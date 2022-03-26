@@ -1,6 +1,6 @@
 <div align="center">
   <h1>🔌 IoT-based smart energy consumption monitor available on smartphone and computer</h1>
-  <a href="https://github.com/Wybranowsky">👨‍💻 Krystian Wybranowski</a> · <a href="https://github.com/konhi">👨‍💻 Jan Szymański</a> · <a href="">👨‍🏫 mgr Mariusz Kmiećkowiak</a> · 
+  <a href="https://github.com/Wybranowsky">👨‍💻 Krystian Wybranowski</a> · <a href="https://github.com/konhi">👨‍💻 Jan Szymański</a> · 👨‍🏫 mgr Mariusz Kmiećkowiak
 </div>
 
 ![screely-1647446494361](https://user-images.githubusercontent.com/61631665/160237667-4b3f5300-f8cf-444e-8fbd-6676422f8176.png)
