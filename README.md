@@ -11,3 +11,9 @@
 ![Screen Shot 2022-03-17 at 17 57 07_pixel_very_silver_portrait](https://user-images.githubusercontent.com/61631665/160237969-e0cc7b87-7d6e-4c81-9b4e-3334444419c9.png)
 
 ![img](https://user-images.githubusercontent.com/61631665/160239301-aa182a90-cbd6-42ec-989b-4324fb3a76d7.png)
+
+<div align="center">
+<b>
+<a href="https://grafana.wybran.dev">🕶 Grafana Dashboard</a> · <a href="https://olimpiada.wybran.dev">👓 Web Application</a>
+  </b>
+</div>
