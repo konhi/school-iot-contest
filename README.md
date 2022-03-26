@@ -1,21 +1,9 @@
-# Progressive Web App Example
+<div align="center">
+  <h1>🔌 IoT-based smart energy consumption monitor available on smartphone and computer</h1>
+  <a href="https://github.com/Wybranowsky">👨‍💻 Krystian Wybranowski</a> · <a href="https://github.com/konhi">👨‍💻 Jan Szymański</a> · <a href="">👨‍🏫 mgr Mariusz Kmiećkowiak</a> · 
+</div>
 
-This example uses [`next-pwa`](https://github.com/shadowwalker/next-pwa) to create a progressive web app (PWA) powered by [Workbox](https://developers.google.com/web/tools/workbox/).
+![screely-1647446494361](https://user-images.githubusercontent.com/61631665/160237667-4b3f5300-f8cf-444e-8fbd-6676422f8176.png)
+![screely-1647446309314](https://user-images.githubusercontent.com/61631665/160237898-95fbd1a7-8afb-4bbc-9d3c-5bb1cf4a1ab9.png)
 
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/progressive-web-app&project-name=progressive-web-app&repository-name=progressive-web-app)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example progressive-web-app progressive-web-app
-# or
-yarn create next-app --example progressive-web-app progressive-web-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+![Screen Shot 2022-03-17 at 17 57 07_pixel_very_silver_portrait](https://user-images.githubusercontent.com/61631665/160237969-e0cc7b87-7d6e-4c81-9b4e-3334444419c9.png)
