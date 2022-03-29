@@ -1,5 +1,5 @@
 import styles from "../styles/Home.module.css";
-import { AppBar, IconButton, Toolbar, Typography, Button } from "@mui/material";
+import { AppBar, IconButton, Toolbar, Typography, Button, Paper } from "@mui/material";
 import SettingsIcon from "@mui/icons-material/Settings";
 import Link from "next/link";
 
@@ -33,7 +33,7 @@ export default function Home({ panelIds }) {
       <AppBar position="sticky">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Monitor Energii
+            Monitor Zużywanej Energii
           </Typography>
           <Link href="/settings" passHref>
             <IconButton
@@ -50,6 +50,7 @@ export default function Home({ panelIds }) {
       <ul className={styles.panels}>
         {panelIds.map((panelId: number[]) => (
           <li className={styles.panel} key={"panel-" + panelId}>
+            <Paper>
             <iframe
             className={styles.panelContent}
               src={
@@ -57,6 +58,7 @@ export default function Home({ panelIds }) {
                 panelId
               }
             ></iframe>
+            </Paper>
           </li>
         ))}
       </ul>
