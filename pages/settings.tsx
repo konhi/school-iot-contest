@@ -30,7 +30,7 @@ export default function Home() {
     const notificationsInterval = localStorage.getItem("notificationsInterval")
 
     if (notificationsInterval) {
-      setEnergyLimit(parseInt(notificationsInterval))
+      setNotificationsInterval(parseInt(notificationsInterval))
     }
   }, []);
 

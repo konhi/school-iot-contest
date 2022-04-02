@@ -2,6 +2,7 @@ import styles from "../styles/Home.module.css";
 import { AppBar, IconButton, Toolbar, Typography, Button, Paper } from "@mui/material";
 import SettingsIcon from "@mui/icons-material/Settings";
 import Link from "next/link";
+import { useEffect } from "react";
 
 export async function getStaticProps() {
   const dashboardId = "FYqhqBa7k";
@@ -28,6 +29,51 @@ export async function getStaticProps() {
 
 // @ts-ignore
 export default function Home({ panelIds }) {
+  const ENERGY_TODAY_URL = 'https://cors.eu.org/' + 'https://grafana.wybran.dev/api/datasources/proxy/1/query?db=telegraf&q=SELECT%20mean(%22ENERGY_Today%22)%20FROM%20%22mqtt_consumer%22%20WHERE%20time%20%3E%3D%20now()%20-%201m%20and%20time%20%3C%3D%20now()%20GROUP%20BY%20time(1d)%20fill(null)&epoch=ms'
+
+  useEffect(() => {
+    async function getTodayEnergy() {
+        return fetch(ENERGY_TODAY_URL)
+          .then(response => response.json())
+          .then(json => json.results[0].series[0].values[0][1])
+      }
+
+      // @ts-ignore
+      function getIntervalTime() {
+        // @ts-ignore
+        return parseInt(localStorage.getItem('notificationsInterval')) * 60 * 1000 || 600000
+      }
+
+      function createNotification() {
+        console.info('Creating notification')
+        return new Notification(`Uh-oh! 😦 Przekroczyłeś limit energii!`, {
+          body: 'Może spróbujesz wyłączyć jakieś urządzenia, aby oszczędzić pieniądze i nie szkodzić srodowisku? 🌏💸'
+        })
+      }
+
+      setInterval(() => {
+        getTodayEnergy().then(energy => {
+          // @ts-ignore
+          if (energy > parseInt(localStorage.getItem('energyLimit'))) {
+            if (Notification.permission === "granted") {
+              // If it's okay let's create a notification
+              createNotification()
+            }
+          
+            // Otherwise, we need to ask the user for permission
+            else if (Notification.permission !== "denied") {
+              Notification.requestPermission().then(function (permission) {
+                if (permission === "granted") {
+                  createNotification()
+                }
+              });
+            }
+          }
+        })
+      }, getIntervalTime())
+
+  })
+
   return (
     <div>
       <AppBar position="sticky">
