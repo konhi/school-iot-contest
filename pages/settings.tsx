@@ -8,6 +8,7 @@ import {
   Input,
   InputAdornment,
   InputLabel,
+  TextField,
   Toolbar,
   Typography,
 } from "@mui/material";
@@ -17,6 +18,7 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [energyLimit, setEnergyLimit] = useState(0);
+  const [notificationsInterval, setNotificationsInterval] = useState(0);
 
   useEffect(() => {
     const energyLimit = localStorage.getItem("energyLimit")
@@ -24,11 +26,20 @@ export default function Home() {
     if (energyLimit) {
       setEnergyLimit(parseInt(energyLimit))
     }
+
+    const notificationsInterval = localStorage.getItem("notificationsInterval")
+
+    if (notificationsInterval) {
+      setEnergyLimit(parseInt(notificationsInterval))
+    }
   }, []);
 
   const handleEnergyLimitChange = () => {
-    console.log(energyLimit)
     localStorage.setItem("energyLimit", energyLimit.toString())
+  };
+
+  const handleNotificationsIntervalChange = () => {
+    localStorage.setItem("notificationsInterval", notificationsInterval.toString())
   };
   
   return (
@@ -52,19 +63,32 @@ export default function Home() {
         </Toolbar>
       </AppBar>
       <Box sx={{ display: "flex", flexDirection: "column", flexWrap: "wrap", alignItems: "center" }}>
-        <h3>Ustaw dzienny limit zużycia prądu</h3>
-        <FormControl sx={{ width: "200px", margin: "auto" }} variant="standard">
-          <InputLabel htmlFor="standard-adornment-amount">Limit Zużycia energii</InputLabel>
-          <Input
+        <h3>Spersonalizuj aplikację</h3>
+        <FormControl sx={{ width: "80%", margin: "auto" }} variant="standard">
+          <TextField
             type="number"
             value={energyLimit}
             onChange={(e) => setEnergyLimit(parseInt(e.target.value))}
             id="standard-adornment-amount"
-            startAdornment={
-              <InputAdornment position="start">kWh</InputAdornment>
-            }
+            label="Limit zużycia energii"
+            InputProps={{
+              startAdornment: <InputAdornment position="start">kWh</InputAdornment>,
+            }}
           />
-          <Button sx={{marginTop: "10px"}} variant="contained" size="small" onClick={() => handleEnergyLimitChange()}>zmień</Button>
+
+          <br>
+          </br>
+          <TextField
+            type="number"
+            label="Interwał powiadomień"
+            value={notificationsInterval}
+            onChange={(e) => setNotificationsInterval(parseInt(e.target.value))}
+            id="standard-adornment-notifications"
+            InputProps={{
+              startAdornment: <InputAdornment position="start">minuty</InputAdornment>,
+            }}
+          />
+          <Button sx={{marginTop: "10px"}} variant="contained" size="large" onClick={() => {handleEnergyLimitChange(), handleNotificationsIntervalChange()}}>zmień</Button>
         </FormControl>
       </Box>
     </>
