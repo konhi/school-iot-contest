@@ -79,7 +79,7 @@ export default function Home({ panelIds }) {
       <AppBar position="sticky">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Monitor Zużywanej Energii
+            Monitor Zużytej Energii
           </Typography>
           <Link href="/settings" passHref>
             <IconButton
