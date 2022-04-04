@@ -28,6 +28,8 @@ const firebaseCloudMessaging = {
       await Notification.requestPermission()
       const token = await getToken(messaging, {
         vapidKey: 'BHp6_IZxH-aAvWigUsMTjvRMvmYnHGQxWUo_DU4xSBOycgxJEltC4Oey9aiAGnqHtul4pj0L7Y-vpNZdcoOlEn0'
+      }).then(currentToken => {
+        console.log(`Firebase token is:${ currentToken }`)
       })
 
       localforage.setItem('fcm_token', token)
