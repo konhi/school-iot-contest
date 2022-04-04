@@ -24,13 +24,13 @@ export default function Home() {
     const energyLimit = localStorage.getItem("energyLimit")
 
     if (energyLimit) {
-      setEnergyLimit(parseInt(energyLimit))
+      setEnergyLimit(parseFloat(energyLimit))
     }
 
     const notificationsInterval = localStorage.getItem("notificationsInterval")
 
     if (notificationsInterval) {
-      setNotificationsInterval(parseInt(notificationsInterval))
+      setNotificationsInterval(parseFloat(notificationsInterval))
     }
   }, []);
 
@@ -68,7 +68,7 @@ export default function Home() {
           <TextField
             type="number"
             value={energyLimit}
-            onChange={(e) => setEnergyLimit(parseInt(e.target.value))}
+            onChange={(e) => setEnergyLimit(parseFloat(e.target.value))}
             id="standard-adornment-amount"
             label="Limit zużycia energii"
             InputProps={{
@@ -82,7 +82,7 @@ export default function Home() {
             type="number"
             label="Interwał powiadomień"
             value={notificationsInterval}
-            onChange={(e) => setNotificationsInterval(parseInt(e.target.value))}
+            onChange={(e) => setNotificationsInterval(parseFloat(e.target.value))}
             id="standard-adornment-notifications"
             InputProps={{
               startAdornment: <InputAdornment position="start">minuty</InputAdornment>,

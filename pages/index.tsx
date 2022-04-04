@@ -43,7 +43,7 @@ export default function Home({ panelIds }) {
       // @ts-ignore
       function getIntervalTime() {
         // @ts-ignore
-        return parseInt(localStorage.getItem('notificationsInterval')) * 60 * 1000 || 10 * 60 * 1000
+        return parseFloat(localStorage.getItem('notificationsInterval')) * 60 * 1000 || 10 * 60 * 1000
       }
 
       function createNotification(energyDifference: number) {
@@ -66,9 +66,9 @@ export default function Home({ panelIds }) {
       setInterval(() => {
         getTodayEnergy().then(energy => {
           // @ts-ignore
-          const energyLimit = parseInt(localStorage.getItem('energyLimit'))
+          const energyLimit = parseFloat(localStorage.getItem('energyLimit'))
           if (energy > energyLimit) {
-            const energyDifference = (energy - energyLimit).toFixed(2)
+            const energyDifference = parseFloat((energy - energyLimit).toFixed(2))
             if (Notification.permission === "granted") {
               // If it's okay let's create a notification
               createNotification(energyDifference)
