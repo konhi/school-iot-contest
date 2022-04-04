@@ -43,16 +43,16 @@ export default function Home({ panelIds }) {
       // @ts-ignore
       function getIntervalTime() {
         // @ts-ignore
-        return parseInt(localStorage.getItem('notificationsInterval')) * 60 * 1000 || 600000
+        return parseInt(localStorage.getItem('notificationsInterval')) * 60 * 1000 || 10 * 60 * 1000
       }
 
-      function createNotification() {
+      function createNotification(energyDifference: number) {
         console.info('Creating notification')
 
         // try fixing stupid notification api not working on mobiles by using service workers
         navigator.serviceWorker.ready.then(function(registration) {
           registration.showNotification(`Uh-oh! 😦 Przekroczyłeś limit energii!`, {
-            body: 'Może spróbujesz wyłączyć jakieś urządzenia, aby oszczędzić pieniądze i nie szkodzić srodowisku? 🌏💸'
+            body: `Limit przekroczony o ${energyDifference} kWh. Może spróbujesz wyłączyć jakieś urządzenia, aby oszczędzić pieniądze i nie szkodzić srodowisku? 🌏💸`
             });
         });
         
@@ -66,17 +66,19 @@ export default function Home({ panelIds }) {
       setInterval(() => {
         getTodayEnergy().then(energy => {
           // @ts-ignore
-          if (energy > parseInt(localStorage.getItem('energyLimit'))) {
+          const energyLimit = parseInt(localStorage.getItem('energyLimit'))
+          if (energy > energyLimit) {
+            const energyDifference = energy - energyLimit
             if (Notification.permission === "granted") {
               // If it's okay let's create a notification
-              createNotification()
+              createNotification(energyDifference)
             }
           
             // Otherwise, we need to ask the user for permission
             else if (Notification.permission !== "denied") {
               Notification.requestPermission().then(function (permission) {
                 if (permission === "granted") {
-                  createNotification()
+                  createNotification(energyDifference)
                 }
               });
             }
