@@ -68,7 +68,7 @@ export default function Home({ panelIds }) {
           // @ts-ignore
           const energyLimit = parseInt(localStorage.getItem('energyLimit'))
           if (energy > energyLimit) {
-            const energyDifference = energy - energyLimit
+            const energyDifference = (energy - energyLimit, 2).toFixed(2)
             if (Notification.permission === "granted") {
               // If it's okay let's create a notification
               createNotification(energyDifference)
