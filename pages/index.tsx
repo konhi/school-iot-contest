@@ -48,9 +48,18 @@ export default function Home({ panelIds }) {
 
       function createNotification() {
         console.info('Creating notification')
-        return new Notification(`Uh-oh! 😦 Przekroczyłeś limit energii!`, {
-          body: 'Może spróbujesz wyłączyć jakieś urządzenia, aby oszczędzić pieniądze i nie szkodzić srodowisku? 🌏💸'
-        })
+
+        // try fixing stupid notification api not working on mobiles by using service workers
+        navigator.serviceWorker.ready.then(function(registration) {
+          registration.showNotification(`Uh-oh! 😦 Przekroczyłeś limit energii!`, {
+            body: 'Może spróbujesz wyłączyć jakieś urządzenia, aby oszczędzić pieniądze i nie szkodzić srodowisku? 🌏💸'
+            });
+        });
+        
+
+        // return new Notification(`Uh-oh! 😦 Przekroczyłeś limit energii!`, {
+        //   body: 'Może spróbujesz wyłączyć jakieś urządzenia, aby oszczędzić pieniądze i nie szkodzić srodowisku? 🌏💸'
+        // })
       }
 
 
