@@ -1,6 +1,6 @@
 /* global importScripts, firebase */
-importScripts('https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js')
-importScripts('https://www.gstatic.com/firebasejs/7.9.1/firebase-messaging.js')
+importScripts('https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js');
 
 firebase.initializeApp({
   apiKey: "AIzaSyAa-4r8dF_RuWK0--FSJnYYYXVknTzzsZ0",
@@ -12,4 +12,6 @@ firebase.initializeApp({
   measurementId: "G-550BXY4JQH"
 })
 
-firebase.messaging()
+const messaging = firebase.messaging();
+
+messaging.getToken({vapidKey: 'BHp6_IZxH-aAvWigUsMTjvRMvmYnHGQxWUo_DU4xSBOycgxJEltC4Oey9aiAGnqHtul4pj0L7Y-vpNZdcoOlEn0'}).then(token => console.log('Current Token is:' + token))
