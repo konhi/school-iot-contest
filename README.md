@@ -1,3 +1,9 @@
+## Motivation
+
+This was a project for an IT olympiad that I worked on with another student in high school. It earned us the top prize in the contest, as well as several scholarships. Surprisingly, it is still running as of the end of 2025, and the device is plugged to electricity in some classroom.
+
+---
+
 <div align="center">
   <h1>🔌 IoT-based smart energy consumption monitor available on smartphone and computer</h1>
   <a href="https://github.com/Wybranowsky">👨‍💻 Krystian Wybranowski</a> · <a href="https://github.com/konhi">👨‍💻 Jan Szymański</a> · 👨‍🏫 mgr Mariusz Kmiećkowiak
